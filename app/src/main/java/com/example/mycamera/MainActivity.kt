@@ -81,12 +81,12 @@ class MainActivity : AppCompatActivity() {
     private fun checkCameraHardware(context: Context): Boolean {
         if (context.packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
             // this device has a camera
-            Log.i("checkPermission", "Result : this device has a camera")
+            logData("Result : this device has a camera")
             checkDeviceVersion()
             return true
         } else {
             // no camera on this device
-            Log.i("checkPermission", "Result : no camera on this device")
+            logData("Result : no camera on this device")
             return false
         }
     }
@@ -94,10 +94,10 @@ class MainActivity : AppCompatActivity() {
     private fun checkDeviceVersion() {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
             // only for gingerbread and newer versions
-            Log.i("checkPermission", "Device Version Result : your device version is  33")
+            logData("Device Version Result : your device version is  33")
             onClickRequestPermission()
         } else {
-            Log.i("checkPermission", "Device Version Result : less then device version is  33")
+            logData("Device Version Result : less then device version is  33")
         }
     }
 
@@ -132,9 +132,13 @@ class MainActivity : AppCompatActivity() {
             ActivityResultContracts.RequestPermission()
         ) { isGranted: Boolean ->
             if (isGranted) {
-                Log.i("checkPermission: ", "Granted")
+                logData("Granted")
             } else {
-                Log.i("checkPermission: ", "Denied")
+                logData("Denied")
             }
         }
+
+    private fun logData(msg: String){
+        Log.i("checkPermission: ", msg)
+    }
 }
