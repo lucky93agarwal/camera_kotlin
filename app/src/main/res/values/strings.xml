@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">My Camera</string>
+    <string name="ok">OK</string>
+    <string name="permission_required">Permission Required</string>
+    <string name="permission_granted">Permission Granted</string>
+</resources>
